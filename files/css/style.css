@@ -17,7 +17,9 @@ body{
    div span {
         font-weight: 200;
    }
-   
+   .registerData{
+       display: none;
+   }
    h1{
         font-weight: 200;
    }

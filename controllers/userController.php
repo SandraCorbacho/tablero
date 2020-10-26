@@ -1,1 +1,3 @@
-<? echo 'eeeee'?>
+<?php
+    echo $_POST['type'];
+?>

@@ -39,22 +39,35 @@
         </div>
         
             <div class="col-md-12 col-xs-12 login_control">
-                <form action="controllers/userController.php" method='POST'>
-                    <input type="submit" value='enviar'>
-                </form>
+                
                 <form id='form' action="controllers/userController.php" method='POST'>
              
                     <div class="control">
                         <div class="label">Email Address</div>
-                        <input type="hidden" name='type' id='type'>
-                        <input type="text" class="form-control" value="admin@gmail.com"/>
+                        <input type="hidden" name='type' id='type' value='login'>
+                        <input type="text" id='correo' class="form-control" name='correo' placeholder="admin@gmail.com" required/>
                     </div>
                     
                     <div class="control">
                         <div class="label">Password</div>
-                        <input type="password" class="form-control" value="123456"/>
+                        <input type="password" id='pass' name='pass' class="form-control" placeholder="Contraseña" required/>
                     </div>    
-                    <input type="submit" value='enviar'> 
+                    <div class="control registerData">
+                        <div class="label">Password2</div>
+                        <input type="password" id='pass2' name='pass2' class="form-control" placeholder="Repetir Contraseña" required/>
+                    </div> 
+                    <div class="control registerData">
+                        <div class="label">Nombre</div>
+                        <input type="text" id='name' name='name' class="form-control" placeholder="Nombre" required/>
+                    </div>    
+                    <div class="control registerData">
+                        <div class="label">Apellidos</div>
+                        <input type="text" id='surname' name='surname' class="form-control" placeholder="Apellidos" required/>
+                    </div>  
+                    <div class="control text-center ">
+                    <input class='btn btn-secondary' id='button_send' type="text" value="Enviar" class='w-50'> 
+                    </div>
+                   
                 </form>         
             </div>  
         
@@ -63,10 +76,39 @@
 <script>
     $( document ).ready(function() {
         $('#register').click(function(){
-        $('#type').val('register');
-        $('#form').submit();
+            $('.registerData').show();
+            $('#type').val('register');
         })
-        
+        $('#login').click(function(){
+            $(".registerData input").prop('required',false);
+            $('.registerData').hide();
+
+            $('#type').val('login');
+            
+        })
+        $('#button_send').click(function(){
+            
+            $type=$('#type').val();
+            
+            if($type=='register'){
+                if($('#pass').val() == $('#pass2').val() && $('#pass').val()!= '' && $('#pass2') != ''){
+                    if($('#name').val() != '' && $('#surname').val() != '' && $('#correo').val()){
+                        $('#form').submit();
+                    }else{
+                      
+                        alert('Debe completar todos los datos');
+                    }
+                }else{
+                    alert('Las contraseñas deben coincidir')
+                }
+            }else{
+                if($('#correo').val() != '' && $('#pass').val() != ''){
+                    $('#form').submit();
+                }else{
+                    alert('completa todos los datos')
+                }
+            }
+        })
     });
   
     
