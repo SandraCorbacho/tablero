@@ -3,7 +3,7 @@
     $dbname = "tablero";
     $dbuser = "sandra";
     $dbpass = "linuxlinux";
-    $dns = 'mysql:host='. $dbhost . ';dbname='. $bdname;
+    $dsn = 'mysql:host='. $dbhost . ';dbname='. $dbname;
 
 
 ?>

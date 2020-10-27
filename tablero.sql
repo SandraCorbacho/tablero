@@ -1,10 +1,10 @@
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`role` varchar(255) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `tasks` (
+CREATE TABLE IF NOT EXISTS `tasks` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`description` varchar(255) NOT NULL,
 	`user` INT NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE `tasks` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`email` varchar(255) NOT NULL UNIQUE,
 	`name` varchar(255) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE `users` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `task_items` (
+CREATE TABLE IF NOT EXISTS `task_items` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`taskeId` INT NOT NULL,
 	`completed` BOOLEAN NOT NULL DEFAULT '0',

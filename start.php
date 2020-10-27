@@ -1,8 +1,10 @@
 <?php
 include 'config.php';
-require 'app/src/connect.php';
+require 'app/src/conexion.php';
+
 $db = connectMysql($dsn,$dbuser,$dbpass);
-$sql = file_get_contents('tablon.sql');
+$sql = file_get_contents('tablero.sql');
+
 try{
     $db->exec($sql);
 }
