@@ -6,7 +6,7 @@ function getRoute():string{
     }else{
         $url = 'home';
     }
-    die($url);
+  
     switch($url){
         case 'login':
             return 'userController';
