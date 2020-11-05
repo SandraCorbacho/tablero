@@ -11,7 +11,12 @@
             <div class="line"><h3>Tu Tablero de Tareas</h3></div>
             <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle"/></div>   
             <h1>Hi Guest</h1>
-            <span>INDIAN</span>
+            
+            <?php 
+            if(isset($error)){
+                echo "<span> $error </span>";
+            }
+            ?>
 	    </div>
         <div class="col-md-6 col-xs-6 follow line" align="center">
             <h3>

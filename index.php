@@ -11,6 +11,7 @@ require APP . '/app/src/route.php';
 //enrutamineto
 
 $controller = getRoute();
+
 //registerRol($db);
 //redirigir a ruta capturada;
 require APP.'/app/controllers/' . $controller . '.php';

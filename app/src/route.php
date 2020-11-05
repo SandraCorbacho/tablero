@@ -16,6 +16,9 @@ function getRoute():string{
             return 'welcomeController';
         case 'perfil':
             return 'perfilController';
-        }       
+        case 'dashboard':
+            return 'taskController'; 
+        }  
+            
 }
 ?>
