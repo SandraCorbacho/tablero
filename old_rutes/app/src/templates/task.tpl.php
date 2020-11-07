@@ -53,7 +53,7 @@ $title = 'task';
     </div>
     <div id='addForm' class='container-form'>
                 <span class='closeform'>X</span>
-                 <form action="app/controllers/addTaskController.php" method='POST'>
+                 <form action="../../app/controllers/addTaskController.php" method='POST'>
                         <label for="itemName">Nombre de la Tarea</label>
                         <input type="text" name='itemName' required>
                         <label for="description">Descripción de la tarea</label>
@@ -67,7 +67,7 @@ $title = 'task';
     </div>
     <div id='deleteForm' class='container-form deleteForm'>
                 <span class='closeform'>X</span>
-                 <form action="app/controllers/deleteTaskController.php" method='POST'>
+                 <form action="../../app/controllers/deleteTaskController.php" method='POST'>
                         <label for="itemName">Seguro que quieres borrar: </label>
                         <input type="hidden" id='idTask' name='idTask'>
                         <p id='description'></p>
@@ -77,7 +77,7 @@ $title = 'task';
     <div id='editForm' class='container-form editForm'>
                
                 <span class='closeform'>X</span>
-                 <form action="app/controllers/editTaskController.php" method='POST'>
+                 <form action="../../app/controllers/editTaskController.php" method='POST'>
                  <h1 class='text-center mt-5 text-light'>Modificar Tarea </h2>
                         <input type="hidden" id='editIdItem' name='idItem'>
                         <label for="itemName">Nombre de la Tarea</label>

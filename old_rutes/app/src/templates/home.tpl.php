@@ -1,3 +1,8 @@
+<?php
+    include 'header.tpl.php';
+    session_start();
+?>
+
 
   
 
@@ -7,7 +12,13 @@
             <div class="line"><h3>Tu Tablero de Tareas</h3></div>
             <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle"/></div>   
             <h1>Hi Guest</h1>
-            <span>INDIAN</span>
+            
+            <?php 
+             
+            if(isset($_SESSION['loginMessage'])){
+                echo "<span class='error'>". $_SESSION['loginMessage']."</span>";
+            }
+            ?>
 	    </div>
         <div class="col-md-6 col-xs-6 follow line" align="center">
             <h3>
@@ -22,7 +33,7 @@
         
             <div class="col-md-12 col-xs-12 login_control">
                 
-                <form id='form' action="controllers/userController.php" method='POST'>
+                <form id='form' action="app/controllers/userController.php" method='POST'>
              
                     <div class="control">
                         <div class="label">Email Address</div>
@@ -55,7 +66,8 @@
         
     </div>
 </div>
-<script>
-  
-    
-</script>
+
+<?php
+ 
+include 'footer.tpl.php';
+?>

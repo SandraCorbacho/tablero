@@ -1,5 +1,6 @@
 <?php
     include 'header.tpl.php';
+    session_start();
 ?>
 
 
@@ -13,8 +14,9 @@
             <h1>Hi Guest</h1>
             
             <?php 
-            if(isset($error)){
-                echo "<span> $error </span>";
+             
+            if(isset($_SESSION['loginMessage'])){
+                echo "<span class='error'>". $_SESSION['loginMessage']."</span>";
             }
             ?>
 	    </div>

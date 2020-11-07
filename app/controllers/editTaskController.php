@@ -24,4 +24,4 @@ $data= [
 ];
 
 editTask($db,$data);
-header('Location:/?url=dashboard');
+header('Location:/tablero/?url=dashboard');

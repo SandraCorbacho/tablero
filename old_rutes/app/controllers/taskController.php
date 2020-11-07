@@ -10,5 +10,5 @@ if(isset($_SESSION['email'])){
 }
 
 else{
-    header('Location:/?url=home'); 
+    header('Location:tablero/?url=home'); 
 }

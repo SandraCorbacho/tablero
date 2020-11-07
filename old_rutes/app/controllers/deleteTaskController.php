@@ -12,5 +12,5 @@ $db = connectMysql($dsn,$dbuser,$dbpass);
 $idTask = filter_input(INPUT_POST,'idTask');
 
 deleteTask($db, $idTask);
-    header('Location:/tablero/?url=dashboard');
+    header('Location:tablero/?url=dashboard');
 

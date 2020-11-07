@@ -22,4 +22,4 @@ $data= [
     'finish_date' => $finish_date
 ];
 insertTask($db,$data);
-header('Location:/tablero/?url=dashboard');
+header('Location:tablero/?url=dashboard');

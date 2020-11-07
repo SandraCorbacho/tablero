@@ -3,6 +3,7 @@
 ini_set('display_errors', 'On');
 include 'start.php';
 include 'db.php';
+
 //config entorno
 session_start();
 define('APP',__DIR__);
