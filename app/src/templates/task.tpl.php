@@ -1,8 +1,7 @@
 <?php
 
 include 'header.tpl.php';
-
-session_start();
+$title = 'task';
 ?>
 
 
@@ -11,58 +10,76 @@ session_start();
 <div class="container contaienr-task">
 	<div class="row login_box container-banner-principal">
 	    <div class="col-md-12 col-xs-12" align="center">
-            <div class="line"><h3>Tu Tablero de Tareas</h3></div>
+            <div class="line title"><h3>Tu Tablero de Tareas</h3><span id='addTask'>Nueva Tarea +</span></div>
             <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle"/></div>   
             <h1>Bienvenido a tu tablero</h1>
 	    </div>
         <div class="col-md-12 col-xs-12 login_control">
             
              <table style='height: auto;
-position: initial;
-color: black;'>
-            <th>
-                <td style='color:black'>Usuario</td>
-            </th>
-            <th>
-                <td style='color:black'>Tarea</td>
-            </th>
-            <th>
-                <td style='color:black'>fechaInicio</td>
-            </th>
-            <th>
-                <td style='color:black'>FechaFin</td>
-            </th>
+                position: initial;
+                color: black;width:100%'>
             
-                
-                <?php foreach($data as $key => $dato){
-                    print_r($dato);
-                    $table='';
-                    
-                   
-                   
-                
-                    $table.= "<tr>
-                                <td style='color:black'>".$dato['id']."</td>";
-                              
-                            
-                   
-                    
-                    
-                
-                    
+                <tr>
+                    <th style='color:black'>id</th>
+                    <th style='color:black'>Usuario</th>
+                    <th style='color:black'>Tarea</th>
+                    <th style='color:black'>hescripción</th>
+                    <th style='color:black'>Completaha</th>
+                    <th style='color:black'>fecha Inicio</th>
+                    <th style='color:black'>Fecha Fin</th>
+                    <th style='color:black'>Opciones</th>
+                </tr>
+                <?php
+                $table='';                
+               
+                 foreach($data as $key=>$dato){
+                    $table.= "<tr>";
+                        $table.=" <td style='color:black'>".$data[$key]['id']."</td>";
+                        $table.=" <td style='color:black'>".$data[$key]['name']."</td>";
+                        $table.=" <td style='color:black'>".$data[$key]['itemName']."</td>";
+                        $table.=" <td style='color:black'>".$data[$key]['description']."</td>";
+                        $table.=" <td style='color:black'>".$data[$key]['completed']."</td>";
+                        $table.=" <td style='color:black'>".$data[$key]['start_date']."</td>";
+                        $table.=" <td style='color:black'>".$data[$key]['finish_date']."</td>";
+                        $table.=" <td style='color:black'><span>Modificar</span> <span class='deleteTask' style='color:black'> Borrar</span></td>";
+                    $table.="</tr>";
                  }
-                 $table.="</tr>";
+                 
                  echo $table;
                  ?>
              </table>        
         </div>  
+    </div>
+    <div id='addForm' class='container-form'>
+                <span class='closeform'>X</span>
+                 <form action="../../app/controllers/addTaskController.php" method='POST'>
+                        <label for="itemName">Nombre de la Tarea</label>
+                        <input type="text" name='itemName' required>
+                        <label for="description">Descripción de la tarea</label>
+                        <textarea type="text" name='description' required> </textarea>
+                        <label for="start_date">Fecha de inicio</label>
+                        <input type="date" name='start_date' required >
+                        <label for="finish_date">Fecha de fin</label>
+                        <input type="date" name='finish_date' required >
+                        <input type="submit" value='Guardar Tarea'>
+                </form>
+    </div>
+    <div id='deleteForm' class='container-form'>
+                <span class='closeform'>X</span>
+                 <form action="../../app/controllers/deleteTaskController.php" method='POST'>
+                        <label for="itemName">Seguro que quieres borrar: </label>
+                        <input type="hidden" id='idTask'>
+                        <p id='description'></p>
+                        <input type="submit" value='Eleminar Tarea'>
+                </form>    
     </div>
 </div>
 
 
  <?php
 include 'footer.tpl.php';
-echo '<script src="/public/js/'.$title.'.js></script>';
+
 ?>
 
 

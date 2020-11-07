@@ -16,8 +16,8 @@ if(filter_input(INPUT_POST,'pass2')!= null){
     $data = [
         'email'     => filter_input(INPUT_POST, 'correo'),
         'name'      => filter_input(INPUT_POST, 'name'),
-        'surname'   => password_hash(filter_input(INPUT_POST, 'surname'),PASSWORD_BCRYPT,['cost'=>4]),
-        'pass'      => filter_input(INPUT_POST, 'pass'),
+        'surname'   => filter_input(INPUT_POST, 'surname'),
+        'pass'      => password_hash(filter_input(INPUT_POST, 'pass'),PASSWORD_BCRYPT,['cost'=>4]),
         'role'      => 2
     ];
     if(existUser($db,$data['email'])){
@@ -30,9 +30,14 @@ if(filter_input(INPUT_POST,'pass2')!= null){
     //sino comprobaremos si existe en la base de datos
     $email = filter_input(INPUT_POST, 'correo');
     $pass = filter_input(INPUT_POST, 'pass');
-    selectUser($db,$email,$pass);
-    $uname = $_SESSION['uname'] ?? '';
-    header('Location:/?url=dashboard');
+    
+    if(selectUser($db,$email,$pass)){
+       
+        header('Location:/?url=dashboard');
+    }else{
+        header('Location:/?url=home');
+    }
+   
 }
 //si esta definida la session
 
