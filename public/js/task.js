@@ -39,5 +39,5 @@ $( document ).ready(function() {
         $('#editForm').attr('style','display:flex');
 
     })
-
+    console.log(Date());
 })

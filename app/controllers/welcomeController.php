@@ -4,7 +4,12 @@
 
 require APP .'/app/src/render.php';
 //si esta definida la session
-$uname = $_SESSION['uname'] ?? '';
-echo render('home', ['title' => 'home'. $uname]);
+if(isset($_SESSION['name'])){
+    header('Location:/?url=dashboard');
+}else{
+    $uname = $_SESSION['uname'] ?? '';
+    echo render('home', ['title' => 'home'. $uname]);
+}
+
 
 ?>

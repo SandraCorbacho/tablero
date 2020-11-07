@@ -55,7 +55,7 @@
                     
 
                     
-                    <a href="https://startbootstrap.github.io/startbootstrap-small-business/" class="btn btn-link btn-sm d-none d-md-inline-block"><i class="fal fa-times mr-1"></i> Remove Frame</a>
+                    <form action="../../app/controllers/logoutController.php" class="btn btn-link btn-sm d-none d-md-inline-block"><i class="fal fa-times mr-1"></i><input type='submit' value='Cerrar Sessión'></form>
                     
                 </div>
             </div>
