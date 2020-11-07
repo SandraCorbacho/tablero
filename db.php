@@ -129,3 +129,21 @@ function deleteTask($db, $idTask){
         return false;
     }
 }
+
+function editTask($db,$data){
+    try{
+        $sql = "UPDATE tasks SET description = '{$data['description']}',  start_date = '{$data['start_date']}', finish_date = ' {$data['finish_date']}' where tasks.id={$data['id']};";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+    }catch(PDOException $e){
+        return $e;
+    }
+    try{
+        $sql = "UPDATE task_items SET itemName = '{$data[itemName]}' where taskeId=4";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+    }catch(PDOException $e){
+        return $e;
+    }
+   
+}

@@ -79,7 +79,7 @@ $title = 'task';
                 <span class='closeform'>X</span>
                  <form action="../../app/controllers/editTaskController.php" method='POST'>
                  <h1 class='text-center mt-5 text-light'>Modificar Tarea </h2>
-                        <input type="hidden" id='editItItem'>
+                        <input type="hidden" id='editIdItem' name='idItem'>
                         <label for="itemName">Nombre de la Tarea</label>
                         <input type="text" name='editItemName' id='editItemName' required>
                         <label for="description">Descripción de la tarea</label>
