@@ -6,7 +6,7 @@ require '../src/conexion.php';
 include '../../config.php';
 include '../src/render.php';
 include '../src/redirect.php';
-
+session_start();
 $db = connectMysql($dsn,$dbuser,$dbpass);
 
 //si existe la cotnraseña2, es porque se esta registrando 

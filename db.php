@@ -49,10 +49,11 @@ function selectUser($db,$mail,$password){
             $user=$row[0];
             
             $res=password_verify($password,$user['password']);
-            
+           
             if ($res){
-            $_SESSION['name']=$user['name'];
-            $_SESSION['email']=$user['email'];
+               
+                $_SESSION['name']=$user['name'];
+                $_SESSION['email']=$user['email'];
        
                 return true;
             }else{
@@ -108,4 +109,23 @@ function insertTask($db, $data){
     $stmt->execute();
     
   
+}
+function deleteTask($db, $idTask){
+   try{
+
+   
+    $sql = "DELETE FROM task_items WHERE taskeId = $idTask;";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    }catch(PDOException $e){
+      
+            return false;
+    }
+    try{
+    $sql = "DELETE FROM tasks WHERE id = $idTask;";
+     $stmt = $db->prepare($sql);
+    $stmt->execute();
+    }catch(PDOException $e){
+        return false;
+    }
 }

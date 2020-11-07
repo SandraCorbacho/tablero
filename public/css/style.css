@@ -219,6 +219,18 @@ body{
     font-size: 32px;
     font-weight: bolder;
    }
-   .contaienr-task .container-form .closeform:hover{
+   .contaienr-task .container-form .closeform:hover, .contaienr-task .deleteTask:hover, .contaienr-task .options .editTask:hover{
     cursor: pointer;
+   }
+  .deleteForm form label{
+       font-size: 32px;
+   }
+   .deleteForm form p{
+        font-size: 20px;
+   }    
+
+   .contaienr-task .options{
+    color: black;
+    display: flex;
+    justify-content: space-around;
    }
