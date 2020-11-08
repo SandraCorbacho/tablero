@@ -2,5 +2,5 @@
 
 session_start();
 session_destroy();
-header('Location:/?url=home');
+header('Location:tablero/?url=home');
 

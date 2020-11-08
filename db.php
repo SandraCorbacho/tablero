@@ -81,7 +81,7 @@ function registerUser($db,$data){
 
     $stmt->execute();
     
-    header('Location:/tablero/?url=home');
+    header('Location:tablero/?url=home');
 }
 
 function registerRol($db){

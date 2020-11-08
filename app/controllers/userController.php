@@ -24,7 +24,7 @@ if(filter_input(INPUT_POST,'pass2')!= null){
     if(existUser($db,$data['email'])){
         
         $_SESSION['loginMessage'] = 'Usuario ya existente en nuestra base de datos';
-        header('Location:/tablero/?url=home');
+        header('Location:tablero/?url=home');
     }else{
         
         $_SESSION['loginMessage'] = 'Usuario registrado con éxito';
@@ -39,10 +39,10 @@ if(filter_input(INPUT_POST,'pass2')!= null){
     $pass = filter_input(INPUT_POST, 'pass');
     
     if(selectUser($db,$email,$pass)){
-        header('Location:/tablero/?url=dashboard');
+        header('Location:tablero/?url=dashboard');
     }else{
 
-        header('Location:/tablero/?url=home');
+        header('Location:tablero/?url=home');
     }
    
  }
